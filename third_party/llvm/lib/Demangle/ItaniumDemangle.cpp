@@ -24,9 +24,11 @@
 using namespace llvm;
 using namespace llvm::itanium_demangle;
 
+#if 0
 constexpr const char *itanium_demangle::FloatData<float>::spec;
 constexpr const char *itanium_demangle::FloatData<double>::spec;
 constexpr const char *itanium_demangle::FloatData<long double>::spec;
+#endif
 
 // <discriminator> := _ <non-negative number>      # when number < 10
 //                 := __ <non-negative number> _   # when number >= 10
