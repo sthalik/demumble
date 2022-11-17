@@ -24,6 +24,7 @@ if (NOT MSVC)
     endif()
 else()
     add_compile_options(-Zc:inline -permissive- -GR-)
+    add_compile_options(-wd4100 -wd4244 -wd4267)
     add_definitions(-D_HAS_EXCEPTIONS=0 -DNOMINMAX -D_USE_MATH_DEFINES=1)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)  # The LLVM build sets this.
 endif()
@@ -34,6 +35,5 @@ add_library(demumble STATIC
     third_party/llvm/lib/Demangle/ItaniumDemangle.cpp
     third_party/llvm/lib/Demangle/MicrosoftDemangle.cpp
     third_party/llvm/lib/Demangle/MicrosoftDemangleNodes.cpp
-    third_party/llvm/lib/Demangle/RustDemangle.cpp
     demangle.cpp)
 target_link_libraries(demumble PUBLIC Corrade::Containers)
